@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horario Escolar CECyTE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --beige:#D2B491;
+      --verde:#2e7d32;
+      --verde-hover:#256628;
+      --naranja:#F57C00;
+      --texto:#212121;
+      --fondo:#f4f7f6;
+      --rojo:#d32f2f;
+      --bg-image:url('cecyete4.png');
+    }
+
+    *{box-sizing:border-box;}
+
+    body{
+      font-family:'Roboto',sans-serif;
+      background-color:var(--fondo);
+      margin:0;
+      padding:0;
+      color:var(--texto);
+      min-height:100vh;
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:var(--bg-image);
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      opacity:0.18;
+      filter:blur(0px);
+      z-index:0;
+      pointer-events:none;
+    }
+
+    .page-content{position:relative;z-index:1;}
+
+    .header{
+      background:var(--beige);
+      padding:12px 20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      box-shadow:0 2px 10px rgba(0,0,0,0.12);
+      gap:18px;
+    }
+
+    .header-left{
+      display:flex;
+      flex-direction:column;
+      gap:3px;
+      min-width:0;
+    }
+
+    .header-title{
+      font-size:1.35rem;
+      font-weight:900;
+      color:#ffffff;
+      text-transform:uppercase;
+      letter-spacing:0.4px;
+      line-height:1.1;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      text-shadow:0 1px 0 rgba(0,0,0,0.18);
+    }
+
+    .header-ing{
+      font-size:1.00rem;
+      font-weight:800;
+      color:rgba(255,255,255,0.92);
+      line-height:1.15;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      text-shadow:0 1px 0 rgba(0,0,0,0.14);
+      max-width:70vw;
+    }
+
+    .logo-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      text-decoration:none;
+      border-radius:10px;
+      outline:none;
+    }
+
+    .logo-link:focus-visible{
+      box-shadow:0 0 0 3px rgba(255,255,255,0.55), 0 0 0 6px rgba(46,125,50,0.35);
+    }
+
+    .logo-img{
+      height:52px;
+      width:auto;
+      display:block;
+    }
+
+    .main-container{
+      max-width:900px;
+      margin:20px auto;
+      background-color:rgba(255,255,255,0.98);
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 12px 28px rgba(0,0,0,0.18);
+    }
+
+    .top-banner{
+      height:12px;
+      background:var(--verde);
+    }
+
+    .content-section{
+      padding:20px;
+      text-align:center;
+    }
+
+    .page-title{
+      color:var(--rojo);
+      font-size:1.55rem;
+      font-weight:900;
+      margin:0 0 6px 0;
+      text-transform:uppercase;
+      letter-spacing:0.4px;
+    }
+
+    .page-subtitle{
+      color:var(--verde);
+      font-size:1.12rem;
+      margin:0 0 18px 0;
+      font-weight:900;
+    }
+
+    .horario-wrapper{
+      width:100%;
+      overflow-x:auto;
+      padding-bottom:10px;
+      margin-bottom:22px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .img-horario{
+      max-width:780px;
+      width:100%;
+      height:auto;
+      border-radius:10px;
+      border:6px solid var(--naranja);
+      background:#fff;
+      padding:8px;
+      box-shadow:0 10px 22px rgba(0,0,0,0.14);
+    }
+
+    .btn-back{
+      display:inline-block;
+      background-color:var(--verde);
+      color:#ffffff;
+      text-decoration:none;
+      padding:12px 30px;
+      border-radius:50px;
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:0.9rem;
+      box-shadow:0 4px 6px rgba(0,0,0,0.2);
+      transition:background-color 0.25s,transform 0.2s;
+      margin-top:6px;
+      margin-bottom:18px;
+    }
+
+    .btn-back:hover{
+      background-color:var(--verde-hover);
+      transform:translateY(-2px);
+    }
+
+    .footer-link{
+      display:block;
+      background-color:var(--verde);
+      color:#ffffff;
+      text-align:center;
+      padding:12px;
+      font-size:0.8rem;
+      letter-spacing:1px;
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .footer-link:hover{
+      text-decoration:underline;
+    }
+
+    @media (max-width:520px){
+      .header-title{font-size:1.10rem;}
+      .header-ing{font-size:0.88rem;max-width:66vw;}
+      .logo-img{height:46px;}
+      .page-title{font-size:1.28rem;}
+      .page-subtitle{font-size:1.02rem;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-content">
+    <header class="header">
+      <div class="header-left">
+        <div class="header-title">Plantel CECyTE Emiliano Zapata Morelos</div>
+        <div class="header-ing">Ing. Jiménez Arizmendi Luis Javier</div>
+      </div>
+      <a class="logo-link" href="https://cecytemorelos.edu.mx/cm/" target="_blank" rel="noopener noreferrer" aria-label="Ir a CECyTE Morelos">
+        <img src="cecyte5.png" alt="CECyTE" class="logo-img">
+      </a>
+    </header>
+
+    <div class="main-container">
+      <div class="top-banner"></div>
+
+      <div class="content-section">
+        <h1 class="page-title">HORARIO DE CLASES DEL ESTUDIANTE</h1>
+        <p class="page-subtitle">Semestre: Febrero - Julio 2026 | Grupo 6°F</p>
+
+        <div class="horario-wrapper">
+          <img src="horariotono.jpeg" alt="Horario del Estudiante" class="img-horario">
+        </div>
+
+        <a href="cecyte.html" class="btn-back">Mostrar Credencial del Estudiante</a>
+      </div>
+
+      <a class="footer-link" href="https://cecytemorelos.edu.mx/cm/index.php/emiliano-zapata/" target="_blank" rel="noopener noreferrer">
+        Colegio de Estudios Científicos y Tecnológicos del Estado de Morelos
+      </a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const testImg = new Image();
+      testImg.onload = () => root.style.setProperty('--bg-image', "url('cecyte4.png')");
+      testImg.onerror = () => root.style.setProperty('--bg-image', "url('cecyete4.png')");
+      testImg.src = 'cecyte4.png';
+    })();
+  </script>
+</body>
+</html>
